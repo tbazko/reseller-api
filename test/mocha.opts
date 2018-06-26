@@ -1,0 +1,6 @@
+--timeout=10000
+-u tdd
+--recursive
+--inline-diffs
+--require babel-polyfill
+--compilers js:babel-register

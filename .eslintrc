@@ -1,0 +1,21 @@
+{
+    "env": {
+        "mocha": true
+    },
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "rules": {
+        "arrow-body-style": ["off"],
+        "prefer-arrow-callback": ["off"],
+        "no-restricted-syntax": ["off"],
+        "func-names": ["off"],
+        "import/no-unresolved": ["off"],
+        "import/extensions": ["off"],
+        "import/prefer-default-export": ["off"],
+        "no-underscore-dangle": ["off"],
+        "no-use-before-define": ["off"],
+        "class-methods-use-this": ["off"],
+        "no-plusplus": ["off"],
+        "no-case-declarations": ["off"]
+    }
+}
