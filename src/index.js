@@ -10,6 +10,7 @@ import apiRouter from './apiRouter';
 import { scrapeData } from './crons';
 import knex from './services/knex';
 
+const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(gracefulExit.middleware(app));
 app.use(cors());
@@ -28,7 +29,7 @@ server.on('close', () => {
   console.log('Closing HTTP server');
 });
 
-server.listen(3000, () => {
+server.listen(PORT, () => {
   console.log('Server listening at http://%s:%s',
     server.address().address,
     server.address().port);
