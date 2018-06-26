@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "NODE_ENV=test ./node_modules/.bin/mocha --reporter spec",
-    "start": "nodemon --exec babel-node ./src/index"
+    "start": "NODE_ENV=development nodemon --exec babel-node ./src/index",
+    "prod": "NODE_ENV=production nodemon --exec babel-node ./src/index"
   },
   "standard": {
     "env": [
