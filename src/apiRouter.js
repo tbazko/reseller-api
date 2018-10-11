@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import bodyParser from 'body-parser';
-import shows from './modules/shows';
-import home from './modules/home/index';
+import home from './controllers/home';
 
 export default function () {
   const apiRouter = Router();
@@ -10,7 +9,6 @@ export default function () {
   apiRouter.use(bodyParser.urlencoded({ extended: false }));
 
   home(apiRouter);
-  shows(apiRouter);
 
   return apiRouter;
 }

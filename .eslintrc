@@ -1,8 +1,8 @@
 {
-    "env": {
-        "mocha": true
-    },
-    "extends": "airbnb",
+    "extends": [
+        "airbnb",
+        "plugin:jest/recommended"
+    ],
     "parser": "babel-eslint",
     "rules": {
         "arrow-body-style": ["off"],
