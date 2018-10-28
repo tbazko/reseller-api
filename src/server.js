@@ -20,5 +20,5 @@ app.use((req, res, next) => {
 
 app.use(errorHandler);
 
-export const PORT = process.env.PORT || 3000;
+export const PORT = process.env.PORT || 5000;
 export const server = http.createServer(app);
