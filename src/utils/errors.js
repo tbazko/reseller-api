@@ -4,7 +4,7 @@
  * https://github.com/OAI/OpenAPI-Specification
  */
 
-const errorFactory = (name, defaultMessage, status) =>
+export const errorFactory = (name, defaultMessage, status) =>
   ({ message, details, cause, ...meta } = {}) => {
     const error = new Error(message || defaultMessage);
 
