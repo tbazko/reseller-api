@@ -6,11 +6,13 @@ import gracefulExit from 'express-graceful-exit';
 import errorHandler from './middleware/errorHandler';
 import { notFoundError } from './utils/errors';
 import apiRouter from './apiRouter';
+import { authenticator } from './middleware/authentication';
 
 const app = express();
 app.use(gracefulExit.middleware(app));
 app.use(cors());
 app.use(morgan('dev'));
+app.use(authenticator.initialize());
 
 app.use('/', apiRouter());
 

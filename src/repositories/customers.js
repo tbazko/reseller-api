@@ -10,7 +10,7 @@ class UserExistsError extends Error {
 };
 
 export async function insert(user) {
-  const formatted = formatUserData(user);
+  const formatted = formatApiToDb(user);
 
   await knex('customers')
     .insert(formatted)
@@ -22,7 +22,21 @@ export async function insert(user) {
     })
 }
 
-function formatUserData(user) {
+export async function getCustomerByEmail(email) {
+  const user = await knex('customers')
+    .where({ email });
+
+  return formatDbToApi(user[0]);
+}
+
+export async function getCustomerById(id) {
+  const user = await knex('customers')
+    .where({ id });
+
+  return formatDbToApi(user[0]);
+}
+
+function formatApiToDb(user) {
   const formatted = {
     id: uuidv4(),
     ...user,
@@ -30,4 +44,14 @@ function formatUserData(user) {
     additional_info: user.additionalInfo
   };
   return omit(formatted, ['postIndex', 'additionalInfo']);
+}
+
+function formatDbToApi(user) {
+  const formatted = {
+    id: uuidv4(),
+    ...user,
+    postIndex: user.post_index,
+    additionalInfo: user.additional_info
+  };
+  return omit(formatted, ['post_index', 'additional_info']);
 }

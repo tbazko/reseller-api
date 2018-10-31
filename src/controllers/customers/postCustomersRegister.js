@@ -13,5 +13,5 @@ export default async function postCustomersRegister(req, res) {
     }
     throw err;
   }
-  res.status(201);
+  return res.status(201).send();
 }
