@@ -1,11 +1,11 @@
-import { authenticator, login } from '../../middleware/authentication';
+import { passport, login } from '../../middleware/authentication';
 import { unauthorizedError } from '../../utils/errors';
 
 /**
  * POST /customers/login
  */
 export default async function postCustomersLogin(req, res, next) {
-  return authenticator.authenticate('local', async (error, customer, info) => {
+  return passport.authenticate('local', async (error, customer, info) => {
     if (error) {
       return next(error);
     }

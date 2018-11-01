@@ -54,4 +54,4 @@ function verify(email, password, done) {
     .catch(done);
 }
 
-export { passport as authenticator };
+export { passport };
