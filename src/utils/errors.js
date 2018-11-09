@@ -22,7 +22,8 @@ export const errorFactory = (name, defaultMessage, status) =>
 export const serverError = errorFactory('ServerError', 'Internal Server Error', 500);
 export const unauthorizedError = errorFactory('UnauthorizedError', 'Unauthorized', 401);
 export const notFoundError = errorFactory('NotFoundError', 'Not Found', 404);
-export const conflictError = errorFactory('ConflictError  ', 'Conflict', 409);
+export const conflictError = errorFactory('ConflictError', 'Conflict', 409);
+export const badRequestError = errorFactory('BadRequestError', 'Bad Request', 400);
 
 export const isOperationalError = error => error.__operational_error__;
 

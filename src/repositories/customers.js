@@ -36,6 +36,13 @@ export async function getCustomerById(id) {
   return formatDbToApi(user[0]);
 }
 
+export async function saveDomainForEmail({ email, domain }) {
+  const users = await knex('customers')
+    .where({ email });
+  await knex('domains')
+    .insert({ owner_id: users[0].id, domain_name: domain });
+}
+
 function formatApiToDb(user) {
   const formatted = {
     id: uuidv4(),

@@ -40,7 +40,8 @@
     "passport-local": "^1.0.0",
     "pg": "^7.6.0",
     "supertest": "^3.3.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "whois": "^2.7.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

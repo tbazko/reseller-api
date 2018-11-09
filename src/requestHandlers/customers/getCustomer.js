@@ -5,7 +5,7 @@ import { notFoundError, unauthorizedError } from '../../utils/errors';
  * GET /customers/:id
  */
 export default async function getCustomer(req, res) {
-  console.log('getCustomer', req.user);
+  console.log('getCustomer', req);
   if (!req.isAuthenticated()) {
     throw unauthorizedError();
   }
