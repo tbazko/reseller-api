@@ -2,10 +2,9 @@ import { getCustomerById } from '../../repositories/customers';
 import { notFoundError, unauthorizedError } from '../../utils/errors';
 
 /**
- * GET /customers/:id
+ * GET /customers/self
  */
-export default async function getCustomer(req, res) {
-  console.log('getCustomer', req);
+export default async function getCustomersSelf(req, res) {
   if (!req.isAuthenticated()) {
     throw unauthorizedError();
   }

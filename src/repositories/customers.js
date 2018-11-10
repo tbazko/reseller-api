@@ -57,8 +57,8 @@ function formatDbToApi(user) {
   const formatted = {
     id: uuidv4(),
     ...user,
-    postIndex: user.post_index,
-    additionalInfo: user.additional_info
+    postIndex: user && user.post_index ? user.post_index : undefined,
+    additionalInfo: user && user.additional_info ? user.additional_info : undefined,
   };
   return omit(formatted, ['post_index', 'additional_info']);
 }

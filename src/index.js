@@ -1,4 +1,8 @@
-import { server, PORT } from './server';
+require('babel-register');
+require('babel-polyfill');
+
+const server = require('./server').server;
+const PORT = require('./server').PORT;
 const migrate = require('./services/knex').migrate;
 
 server.on('close', () => {

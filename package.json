@@ -6,12 +6,16 @@
   "scripts": {
     "lint": "eslint src/**",
     "test": "NODE_ENV=test mocha",
-    "start": "NODE_ENV=development nodemon --exec babel-node ./src/index"
+    "dev": "NODE_ENV=development nodemon --exec babel-node ./src/index",
+    "start": "node ./src/index.js"
   },
   "standard": {
     "env": [
       "mocha"
     ]
+  },
+  "engines": {
+    "node": "8.x"
   },
   "author": "",
   "license": "ISC",

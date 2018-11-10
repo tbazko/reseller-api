@@ -22,7 +22,6 @@ class DomainsLookUp {
     return new Promise((resolve, reject) => {
       whois.lookup(domain, (err, data) => {
         if (err) reject(err);
-        console.log(data);
         if (this._isAvailable(data)) {
           this._availableDomains.push(domain);
         }
