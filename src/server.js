@@ -31,7 +31,7 @@ app.use(session({
     secure: false,
   },
   store: new RedisStore({
-    url: 'redis://localhost:6379',
+    url: process.env.NODE_ENV === 'production' ? process.env.REDIS_URL :'redis://localhost:6379',
   }),
   secret: 'secret key',
   resave: false,
