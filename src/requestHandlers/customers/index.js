@@ -3,6 +3,7 @@ import postCustomersLogin from './postCustomersLogin';
 import postCustomersLogout from './postCustomersLogout';
 import postCustomersRegister from './postCustomersRegister';
 import postCustomersDomain from './postCustomersDomain';
+import getCustomersDomains from './getCustomersDomains';
 import getCustomersSelf from './getCustomersSelf';
 import getCustomersIsAuthenticated from './getCustomersIsAuthenticated';
 import getCustomersById from './getCustomersById';
@@ -14,6 +15,7 @@ export default (router) => {
   router.post('/customers/logout', catchError(postCustomersLogout));
   router.post('/customers/domain', catchError(postCustomersDomain));
 
+  router.get('/customers/domains', catchError(getCustomersDomains));
   router.get('/customers/self', catchError(getCustomersSelf));
   router.get('/customers/is-authenticated', catchError(getCustomersIsAuthenticated));
   router.get('/customers/:id', catchError(getCustomersById));

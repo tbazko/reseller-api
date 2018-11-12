@@ -1,4 +1,5 @@
 import passport from 'passport';
+import bcrypt from 'bcrypt-nodejs';
 import { Strategy as LocalStrategy } from 'passport-local';
 import { getCustomerByEmail, getCustomerById } from '../repositories/customers';
 
@@ -44,8 +45,7 @@ function verify(email, password, done) {
         return done(null, false, { message: 'User has not defined a password' });
       }
 
-      // if (!bcrypt.compareSync(password, user.password)) {
-      if (password !== customer.password) {
+      if (!bcrypt.compareSync(password, customer.password)) {
         return done(null, false, { message: 'Invalid username or password' });
       }
 
