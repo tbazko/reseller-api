@@ -12,22 +12,25 @@ import apiRouter from './apiRouter';
 import { passport } from './middleware/authentication';
 
 const RedisStore = connectRedis(session)
+const allowedClient = process.env.ALLOWED_CLIENT || 'http://localhost:3000';
 
 const app = express();
 app.use(gracefulExit.middleware(app));
-app.use(cors());
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+app.use(cors({
+  origin: `${allowedClient}`,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  credentials: true,
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept']
+}));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
   cookie: {
     maxAge: 365 * 24 * 60 * 60 * 1000,
-    httpOnly: false,
+    httpOnly: true,
     secure: false,
   },
   store: new RedisStore({
