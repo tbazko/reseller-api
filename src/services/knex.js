@@ -1,7 +1,7 @@
 import knex from 'knex';
 import path from 'path';
 
-let databaseUrl = 'postgresql://tam:@127.0.0.1:5432/reseller';
+let databaseUrl = 'postgresql://postgres:postgres@127.0.0.1:5432/reseller';
 
 if (process.env.NODE_ENV === 'production') {
   databaseUrl = `${process.env.POSTGRESQL_URL}?ssl=true`;
